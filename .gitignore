@@ -1,0 +1,7 @@
+node_modules/
+.browsers/
+dist/
+snapshots/
+validation/
+*.html
+*.report.json
