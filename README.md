@@ -8,7 +8,7 @@ formula rendering, and image zoom. It is a read-only snapshot.
 
 ## Install once
 
-Use a local **WSL or Linux desktop** with Bash, a browser, and
+Use a local **macOS, Windows (WSL), or Linux desktop** with Bash, a browser, and
 [Node.js 20.19 or newer with npm](https://nodejs.org/en/download).
 SSH-only and headless sign-in are not supported. On Windows, install Node.js
 inside WSL and run these commands in a WSL terminal.
@@ -27,6 +27,30 @@ extracted directory instead.
 The installer uses the pinned lockfile and installs dependencies in this tool's
 directory. Installation and export require an internet connection. Reading the
 resulting HTML does not.
+
+### macOS Terminal
+
+The current scripts and production dependencies are expected to work on macOS
+based on code and dependency review. Browser sign-in uses the
+[`open` package](https://github.com/sindresorhus/open#api), which supports macOS
+through its system `open` command. **This project has not yet been tested on a
+Mac.**
+
+Install [Node.js 20.19 or newer with npm](https://nodejs.org/en/download), then
+run the following in Terminal, replacing `NOTION_PAGE_SHARE_LINK` with your page
+link:
+
+```bash
+git clone https://github.com/jack595/NotionToHTML.git
+cd NotionToHTML
+bash install.sh
+bash notion-export.sh 'NOTION_PAGE_SHARE_LINK' --output "$HOME/Downloads/notion.html"
+```
+
+Invoke the scripts with `bash` as shown, including when your Terminal uses zsh.
+The first export opens your default browser for Notion authorization. Later
+exports reuse the saved login. Open the generated HTML in a browser to read and
+share it offline.
 
 ## Export
 
